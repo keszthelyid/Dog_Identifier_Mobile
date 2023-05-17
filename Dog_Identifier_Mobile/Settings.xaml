@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dog_Identifier_Mobile.Settings"
+             Title="Settings">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Settings Menu" HorizontalOptions="Center" Margin="20" FontSize="Large" FontAttributes="Bold"/>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Label Text="Save scans to scan history"  FontSize="Medium" HorizontalOptions="StartAndExpand" Margin="40,0,0,0"/>
+                <Switch x:Name="Sw_SaveHistory" OnColor="DarkGray" ThumbColor="White" Toggled="Sw_SaveHistory_Toggled" HorizontalOptions="End"  Margin="30,0,0,0"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Label Text="Enable mixed breed predictions"  FontSize="Medium" HorizontalOptions="StartAndExpand" Margin="40,0,0,0"/>
+                <Switch x:Name="Sw_MixedPrediction" OnColor="DarkGray" ThumbColor="White" Toggled="Sw_MixedPrediction_Toggled" HorizontalOptions="End" Margin="40,0,0,0"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="About" HorizontalOptions="Center" Margin="20" FontSize="Large" FontAttributes="Bold"/>
+                <Label FontAttributes="Italic" HorizontalOptions="CenterAndExpand" Margin="10,0,10,10" 
+                       Text="This application was made by Dániel Keszthelyi as a university project. He is a student at Óbuda University. The dog breed informations are provided by https://www.petfinder.com/."/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Dog_Identifier_Mobile.MainPage"
+            xmlns:local="clr-namespace:Dog_Identifier_Mobile"
+            NavigationPage.HasNavigationBar="False"
+            BarBackgroundColor="Black"
+            SelectedTabColor="White"
+            UnselectedTabColor="DimGray"
+            Title="Home">
+
+    <local:Scan Title ="New Scan" IconImageSource="magnifier"/>
+    <local:ScanHistory Title ="Scan History" IconImageSource="history"/>
+    <local:Settings Title ="Settings" IconImageSource="settings"/>
+
+</TabbedPage>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dog_Identifier_Mobile.ScanHistory"
+             Appearing="ContentPage_Appearing"
+             Title="Scan History">
+    <ContentPage.Content>
+    
+    <StackLayout>
+            <Label Text="Your previous scans: " HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="Large" Margin="20"/>
+            <ListView x:Name="Scans" ItemSelected="Scans_ItemSelected" ItemsSource="{Binding Results}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" >
+                                <Label Text="{Binding Text}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                <Button Text="Delete" HeightRequest="40" Clicked="Button_Clicked" CommandParameter="{Binding .}" HorizontalOptions="EndAndExpand" Margin="0,0,10,0" />
+                            </StackLayout>
+                        </ViewCell> 
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
