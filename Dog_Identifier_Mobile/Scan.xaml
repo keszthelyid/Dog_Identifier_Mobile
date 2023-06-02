@@ -14,7 +14,7 @@
             
             <StackLayout Grid.Row="0">
                 <Label Text="Last scan:" HorizontalOptions="Center" Margin="10" FontSize="Large" FontAttributes="Bold"/>
-                <Image x:Name="img_display" HeightRequest="600" VerticalOptions="Center" />
+                <Image x:Name="img_display" HeightRequest="500" />
             </StackLayout>
             
             <ActivityIndicator x:Name="activity" Grid.Row="0" Color="WhiteSmoke" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" WidthRequest="100" />
