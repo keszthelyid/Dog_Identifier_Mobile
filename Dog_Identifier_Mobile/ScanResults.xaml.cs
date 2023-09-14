@@ -1,4 +1,5 @@
-﻿using Dog_Identifier_Mobile.Models;
+﻿using Dog_Identifier_Mobile.Helpers;
+using Dog_Identifier_Mobile.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,21 +38,12 @@ namespace Dog_Identifier_Mobile
                 DogNumberText.Text = "I found " + ToDisplay.Dogs.Length + " dogs on your photo";
             }
 
-            ResultImage.Source = ToImage(ToDisplay.PhotoData);        
+            ResultImage.Source = ImageCreatorFromArray.ToImage(ToDisplay.PhotoData);        
         }
 
         private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
         {
             await Navigation.PopAsync();
-        }
-
-        private ImageSource ToImage(byte[] array)
-        {
-            ImageSource src = ImageSource.FromStream(() =>
-            {
-                return new MemoryStream(array);
-            });
-            return src;
         }
 
         private async void Detected_ItemSelected(object sender, SelectedItemChangedEventArgs e)

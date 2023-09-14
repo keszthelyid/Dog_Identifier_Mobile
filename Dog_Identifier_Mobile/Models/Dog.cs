@@ -14,8 +14,6 @@ namespace Dog_Identifier_Mobile.Models
         public string Link { get; set; }
         public string ApiId { get; set; }
         public double? Percentage { get; set; }
-        public string ContentType { get; set; }
-
         public byte[] PhotoData { get; set; }
 
         [JsonIgnore]
@@ -29,17 +27,6 @@ namespace Dog_Identifier_Mobile.Models
         public override int GetHashCode()
         {
             return Name.GetHashCode();
-        }
-
-        public void ImageFromArray()
-        {
-            if (PhotoData != null)
-            {
-                ImgSrc = ImageSource.FromStream(() =>
-                {
-                    return new MemoryStream(PhotoData);
-                });
-            }      
         }
     }
 }

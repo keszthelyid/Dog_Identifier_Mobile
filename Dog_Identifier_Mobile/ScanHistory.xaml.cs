@@ -1,4 +1,5 @@
-﻿using Dog_Identifier_Mobile.Models;
+﻿using Dog_Identifier_Mobile.Helpers;
+using Dog_Identifier_Mobile.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,12 +29,12 @@ namespace Dog_Identifier_Mobile
 
             if (e.SelectedItem.GetType() == typeof(ScanResult))
             {
-                ((e.SelectedItem as ScanResult).Model as DogViewModel).Dogs.ForEach(x => x.ImageFromArray());
+                ((e.SelectedItem as ScanResult).Model as DogViewModel).Dogs.ForEach(x => x.ImgSrc = ImageCreatorFromArray.ToImage(x.PhotoData));
                 await Navigation.PushAsync(new ScanResults((e.SelectedItem as ScanResult).Model as DogViewModel));
             }
             else
             {
-                ((e.SelectedItem as MixedScanResult).Model as MixedDogPredictionViewModel).Predictions.ForEach(x => x.ForEach(y => y.ImageFromArray()));
+                ((e.SelectedItem as MixedScanResult).Model as MixedDogPredictionViewModel).Predictions.ForEach(x => x.ForEach(y => y.ImgSrc = ImageCreatorFromArray.ToImage(y.PhotoData)));
                 await Navigation.PushAsync(new MixedScanResults(((e.SelectedItem as MixedScanResult).Model as MixedDogPredictionViewModel)));
             }
             

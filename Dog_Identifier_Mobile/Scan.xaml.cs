@@ -1,4 +1,5 @@
-﻿using Dog_Identifier_Mobile.Models;
+﻿using Dog_Identifier_Mobile.Helpers;
+using Dog_Identifier_Mobile.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -146,7 +147,6 @@ namespace Dog_Identifier_Mobile
             {
                 DogViewModel vm = new DogViewModel();
                 vm.PhotoData = File.ReadAllBytes(photoPath);
-                vm.PhotoContentType = MimeMapping.MimeUtility.GetMimeMapping(photoPath);
 
                 try
                 {
@@ -160,9 +160,8 @@ namespace Dog_Identifier_Mobile
                             Preferences.Set("NewScan", true);
                         }
 
-                        result.Predictions.ForEach(x => x.ForEach(y => y.ImageFromArray()));
-                        img_display.Source = ToImage(result.PhotoData);
-
+                        result.Predictions.ForEach(x => x.ForEach(y => y.ImgSrc = ImageCreatorFromArray.ToImage(y.PhotoData)));
+                        img_display.Source = ImageCreatorFromArray.ToImage(result.PhotoData);
                         await Navigation.PushAsync(new MixedScanResults(result));
                     }
                     else
@@ -175,8 +174,8 @@ namespace Dog_Identifier_Mobile
                             Preferences.Set("NewScan", true);
                         }
 
-                        result.Dogs.ForEach(x => x.ImageFromArray());
-                        img_display.Source = ToImage(result.PhotoData);
+                        result.Dogs.ForEach(x => x.ImgSrc = ImageCreatorFromArray.ToImage(x.PhotoData));
+                        img_display.Source = ImageCreatorFromArray.ToImage(result.PhotoData);
 
                         await Navigation.PushAsync(new ScanResults(result));
                     }
@@ -192,15 +191,6 @@ namespace Dog_Identifier_Mobile
                     await DisplayAlert("Error", ex.Message, "OK");
                 }
             }
-        }
-
-        private ImageSource ToImage(byte[] array)
-        {
-            ImageSource src = ImageSource.FromStream(() =>
-            {
-                return new MemoryStream(array);
-            });
-            return src;
         }
     }
 }
