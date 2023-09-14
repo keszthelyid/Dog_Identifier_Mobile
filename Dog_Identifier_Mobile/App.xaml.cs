@@ -22,6 +22,7 @@ namespace Dog_Identifier_Mobile
 
         protected override void OnStart()
         {
+
         }
 
         protected override void OnSleep()
@@ -31,5 +32,6 @@ namespace Dog_Identifier_Mobile
         protected override void OnResume()
         {
         }
+
     }
 }

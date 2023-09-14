@@ -59,7 +59,7 @@ namespace Dog_Identifier_Mobile
             if (((ListView)sender).SelectedItem == null)
                 return;
 
-            await Navigation.PushAsync(new DogInformation((e.SelectedItem as Dog).Link));
+            await Navigation.PushAsync(new DogDetailsPage(e.SelectedItem as Dog));
 
             ((ListView)sender).SelectedItem = null;
         }

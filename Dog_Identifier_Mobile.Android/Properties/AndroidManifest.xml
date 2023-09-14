@@ -3,4 +3,5 @@
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33" />
     <application android:label="Dog_Identifier_Mobile.Android" android:usesCleartextTraffic="true" android:theme="@style/MainTheme"></application>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 </manifest>

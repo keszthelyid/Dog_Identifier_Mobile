@@ -41,7 +41,6 @@ namespace Dog_Identifier_Mobile.Models
             {
                 ConcurrentStack<IScanResult> Results = new ConcurrentStack<IScanResult>();
 
-
                 Parallel.ForEach(Directory.GetFiles(filepath), file =>
                 {
                     if (file.Contains("scn"))

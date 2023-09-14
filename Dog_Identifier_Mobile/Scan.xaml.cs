@@ -22,8 +22,8 @@ namespace Dog_Identifier_Mobile
             InitializeComponent();
             client = new HttpClient();
             // http://localhost:5194
-            // http://192.168.0.234:81
-            client.BaseAddress = new Uri("http://192.168.0.234:81");
+            // http://192.168.0.236:81
+            client.BaseAddress = new Uri("http://192.168.0.236:81");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
               new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -62,6 +62,7 @@ namespace Dog_Identifier_Mobile
         private async Task<DogViewModel> GetDogType(DogViewModel model)
         {
             var response = await client.PostAsJsonAsync("/dog/getdogtype", model);
+            ;
             if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadAsAsync<DogViewModel>();
@@ -101,7 +102,7 @@ namespace Dog_Identifier_Mobile
             }
             catch (PermissionException)
             {
-                await DisplayAlert("Error", "You did not gave permission to acces your camera", "OK");
+                await DisplayAlert("Error", "You did not gave permission to access your camera", "OK");
             }
             catch (Exception ex)
             {
@@ -200,6 +201,6 @@ namespace Dog_Identifier_Mobile
                 return new MemoryStream(array);
             });
             return src;
-        }      
+        }
     }
 }

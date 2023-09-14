@@ -16,8 +16,12 @@ using Android.App;
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 
-[assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]
+
 [assembly: UsesPermission(Android.Manifest.Permission.Camera)]
+[assembly: UsesPermission(Android.Manifest.Permission.ReadMediaImages)]
+[assembly: UsesPermission(Android.Manifest.Permission.ReadMediaVideo)]
+[assembly: UsesPermission(Android.Manifest.Permission.ReadMediaAudio)]
+
 
 [assembly: UsesFeature("android.hardware.camera", Required = true)]
 [assembly: UsesFeature("android.hardware.camera.autofocus", Required = false)]
@@ -33,4 +37,3 @@ using Android.App;
 
 // Add some common permissions, these can be removed if not needed
 [assembly: UsesPermission(Android.Manifest.Permission.Internet)]
-[assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]

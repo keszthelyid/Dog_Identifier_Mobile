@@ -20,8 +20,8 @@
             <ActivityIndicator x:Name="activity" Grid.Row="0" Color="WhiteSmoke" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" WidthRequest="100" />
             
             <StackLayout Grid.Row="1">
-                <Button x:Name="btn_camera" Text="Take a new Photo with camera" Padding="23" Margin="20,0,20,0" Clicked="btn_camera_Clicked"/>
                 <Button x:Name="btn_gallery" Text="Select a new Photo from gallery" Padding="23" Margin="20,0,20,0" Clicked="btn_gallery_Clicked"/>
+                <Button x:Name="btn_camera" Text="Take a new Photo with camera" Padding="23" Margin="20,0,20,0" Clicked="btn_camera_Clicked"/>
             </StackLayout>
                   
         </Grid>
