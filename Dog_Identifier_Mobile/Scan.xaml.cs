@@ -182,13 +182,9 @@ namespace Dog_Identifier_Mobile
 
 
                 }
-                catch (System.Net.WebException)
+                catch (Exception)
                 {
                     await DisplayAlert("Can't connect to the server", "The server is not available right now or there is a problem with your internet connection. If your internet connection is fine please try again later.", "OK");
-                }
-                catch (Exception ex)
-                {
-                    await DisplayAlert("Error", ex.Message, "OK");
                 }
             }
         }

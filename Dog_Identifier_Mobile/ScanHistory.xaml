@@ -7,14 +7,29 @@
     <ContentPage.Content>
     
     <StackLayout>
-            <Label Text="Your previous scans: " HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="Large" Margin="20"/>
-            <ListView x:Name="Scans" ItemSelected="Scans_ItemSelected" ItemsSource="{Binding Results}">
+            <Label Text="Your previous scans: " TextColor="#66A7B7" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="Large" Margin="20"/>
+            <ListView x:Name="Scans" ItemSelected="Scans_ItemSelected" ItemsSource="{Binding Results}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" >
-                                <Label Text="{Binding Text}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
-                                <Button Text="Delete" HeightRequest="40" Clicked="Button_Clicked" CommandParameter="{Binding .}" HorizontalOptions="EndAndExpand" Margin="0,0,10,0" />
+                                <Label Text="{Binding Text}" FontSize="16.5" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="#66A7B7"/>
+                                <ImageButton Source="Trash"  BackgroundColor="Transparent" BorderWidth="1" HeightRequest="40" Clicked="Button_Clicked" CommandParameter="{Binding .}" HorizontalOptions="EndAndExpand" Margin="0,0,20,0" Padding="1" >
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal">
+                                                <VisualState.Setters>
+                                                    <Setter Property="Scale" Value="1" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="Pressed">
+                                                <VisualState.Setters>
+                                                    <Setter Property="Scale"  Value="0.85" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </ImageButton>
                             </StackLayout>
                         </ViewCell> 
                     </DataTemplate>

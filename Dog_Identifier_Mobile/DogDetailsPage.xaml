@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Dog_Identifier_Mobile.DogDetailsPage"
              Appearing="ContentPage_Appearing"
+             BackgroundColor="White"
              Title="More Details">
     <ContentPage.Content>
         <ScrollView>
@@ -11,43 +12,44 @@
                     <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"/>
                 </StackLayout.GestureRecognizers>
 
-                <ActivityIndicator x:Name="activity" Color="WhiteSmoke" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" WidthRequest="100" />
+                
 
                 <StackLayout x:Name="MainStack">
-                    <Label x:Name="DogName" FontAttributes="Bold" HorizontalOptions="Center" Padding="10" Margin="3" FontSize="Large"/>
-                    <Image x:Name="DogImage"/>
-                    <Label Text="Description:" FontAttributes="Bold" FontSize="Medium" Margin="0,8"/>
-                    <Label x:Name="Description" />
-                    <Label Text="Life span:" FontAttributes="Bold" FontSize="Medium" Margin="0,8"/>
+                    <Label x:Name="DogName" FontAttributes="Bold" HorizontalOptions="Center" Padding="10" Margin="3" FontSize="Large" TextColor="#66A7B7"/>
+                    <Image x:Name="DogImage" />
+                    <Label Text="Description:" FontAttributes="Bold" FontSize="Medium" Margin="0,8" TextColor="#66A7B7"/>
+                    <Label x:Name="Description" TextColor="#66A7B7"/>
+                    <Label Text="Life span:" FontAttributes="Bold" FontSize="Medium" Margin="0,8" TextColor="#66A7B7"/>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Minimum life span: " FontAttributes="Bold"/>
-                        <Label x:Name="MinLife"/>
+                        <Label Text="Minimum life span: " FontAttributes="Bold" TextColor="#66A7B7"/>
+                        <Label x:Name="MinLife" TextColor="#66A7B7"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Maximum life span: " FontAttributes="Bold"/>
-                        <Label x:Name="MaxLife"/>
+                        <Label Text="Maximum life span: " FontAttributes="Bold" TextColor="#66A7B7"/>
+                        <Label x:Name="MaxLife" TextColor="#66A7B7"/>
                     </StackLayout>
-                    <Label Text="Weight Informations:" FontAttributes="Bold" FontSize="Medium" Margin="0,10"/>
+                    <Label Text="Weight Informations:" FontAttributes="Bold" FontSize="Medium" Margin="0,10" TextColor="#66A7B7"/>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Minimum female weight: " FontAttributes="Bold"/>
-                        <Label x:Name="MinFemaleWeight"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Maximum female weight: " FontAttributes="Bold"/>
-                        <Label x:Name="MaxFemaleWeight"/>
+                        <Label Text="Minimum female weight: " FontAttributes="Bold" TextColor="#66A7B7"/>
+                        <Label x:Name="MinFemaleWeight" TextColor="#66A7B7"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Minimum male weight: " FontAttributes="Bold"/>
-                        <Label x:Name="MinMaleWeight"/>
+                        <Label Text="Maximum female weight: " FontAttributes="Bold" TextColor="#66A7B7"/>
+                        <Label x:Name="MaxFemaleWeight" TextColor="#66A7B7"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Maximum male weight: " FontAttributes="Bold"/>
-                        <Label x:Name="MaxMaleWeight"/>
+                        <Label Text="Minimum male weight: " FontAttributes="Bold" TextColor="#66A7B7"/>
+                        <Label x:Name="MinMaleWeight" TextColor="#66A7B7"/>
                     </StackLayout>
-                    <Label Text="Is this dog hypoallergenic?" FontAttributes="Bold" FontSize="Medium" Margin="0,8"/>
-                    <Label x:Name="HypoAllergenic"/>
-                    <Button Text="More Info" VerticalOptions="Center" HorizontalOptions="Center" Clicked="Button_Clicked" Padding="50,20" Margin="0, 10, 0, 20"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Maximum male weight: " FontAttributes="Bold" TextColor="#66A7B7"/>
+                        <Label x:Name="MaxMaleWeight" TextColor="#66A7B7"/>
+                    </StackLayout>
+                    <Label Text="Is this dog hypoallergenic?" FontAttributes="Bold" FontSize="Medium" Margin="0,8" TextColor="#66A7B7"/>
+                    <Label x:Name="HypoAllergenic" TextColor="#66A7B7"/>
+                    <Button Text="More Info" BackgroundColor="#66A7B7" VerticalOptions="Center" HorizontalOptions="Center" Clicked="Button_Clicked" Padding="30,20" Margin="0, 20, 0, 30"/>
                 </StackLayout>
+                <ActivityIndicator x:Name="activity" Color="WhiteSmoke" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" WidthRequest="100" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

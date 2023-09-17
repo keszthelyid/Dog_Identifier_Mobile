@@ -15,8 +15,7 @@ namespace Dog_Identifier_Mobile
 
             MainPage = new NavigationPage(new MainPage())
             {
-                BarBackgroundColor = Color.Black,
-                BarTextColor = Color.White
+
             };
         }
 

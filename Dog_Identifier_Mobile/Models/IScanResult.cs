@@ -8,7 +8,6 @@ namespace Dog_Identifier_Mobile.Models
         IDogViewModel Model { get; set; }
         string Text { get; set; }
         DateTime TimeOfScan { get; set; }
-
         void Delete();
     }
 }

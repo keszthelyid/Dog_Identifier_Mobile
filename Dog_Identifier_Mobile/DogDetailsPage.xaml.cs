@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Dog_Identifier_Mobile
 {
@@ -19,9 +18,9 @@ namespace Dog_Identifier_Mobile
         Dog dog;
         DogInfo currentDogInfo;
         HttpClient client;
-        public DogDetailsPage(Dog d)
+        public DogDetailsPage(Dog dog)
         {
-            dog = d;
+            this.dog = dog;
             
             client = new HttpClient();
             client.BaseAddress = new Uri("https://dogapi.dog/");
@@ -29,7 +28,6 @@ namespace Dog_Identifier_Mobile
             client.DefaultRequestHeaders.Accept.Add(
               new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-         
             InitializeComponent();
 
             MainStack.IsVisible = false;
@@ -49,25 +47,34 @@ namespace Dog_Identifier_Mobile
 
         private async void ContentPage_Appearing(object sender, EventArgs e)
         {
-            activity.IsRunning = true;           
+            try
+            {
+                activity.IsRunning = true;
+                currentDogInfo = await GetDogInformation(dog.ApiId);
 
-            currentDogInfo = await GetDogInformation(dog.ApiId);
-
-            Description.Text = currentDogInfo.data.attributes.description;
-            DogImage.Source = dog.ImgSrc;
-            DogName.Text = currentDogInfo.data.attributes.name;
-            MinLife.Text = currentDogInfo.data.attributes.life.min.ToString() + " years";
-            MaxLife.Text = currentDogInfo.data.attributes.life.max.ToString() + " years";
-            MinFemaleWeight.Text = currentDogInfo.data.attributes.female_weight.min + " kg";
-            MaxFemaleWeight.Text = currentDogInfo.data.attributes.female_weight.max + " kg";
-            MinMaleWeight.Text = currentDogInfo.data.attributes.male_weight.min + " kg";
-            MaxMaleWeight.Text = currentDogInfo.data.attributes.male_weight.max + " kg";
-            HypoAllergenic.Text = currentDogInfo.data.attributes.hypoallergenic == true ?  "This dog is hypoallergenic" : "This dog is not hypoallergenic";
+                Description.Text = currentDogInfo.data.attributes.description;
+                DogImage.Source = dog.ImgSrc;
+                DogName.Text = currentDogInfo.data.attributes.name;
+                MinLife.Text = currentDogInfo.data.attributes.life.min.ToString() + " years";
+                MaxLife.Text = currentDogInfo.data.attributes.life.max.ToString() + " years";
+                MinFemaleWeight.Text = currentDogInfo.data.attributes.female_weight.min + " kg";
+                MaxFemaleWeight.Text = currentDogInfo.data.attributes.female_weight.max + " kg";
+                MinMaleWeight.Text = currentDogInfo.data.attributes.male_weight.min + " kg";
+                MaxMaleWeight.Text = currentDogInfo.data.attributes.male_weight.max + " kg";
+                HypoAllergenic.Text = currentDogInfo.data.attributes.hypoallergenic == true ? "This dog is hypoallergenic" : "This dog is not hypoallergenic";
 
 
-            activity.IsRunning = false;
-            activity.IsVisible = false;
-            MainStack.IsVisible = true;       
+                activity.IsRunning = false;
+                activity.IsVisible = false;
+                MainStack.IsVisible = true;
+            }
+            catch (Exception)
+            {
+                activity.IsRunning = false;
+                await DisplayAlert("Can't connect to the server", "There is a problem with your internet connection. Connect to the internet and try again.", "OK");
+                await Navigation.PopAsync();
+            }
+                
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

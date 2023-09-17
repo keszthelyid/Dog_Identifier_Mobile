@@ -4,16 +4,16 @@
              xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"           
              x:Class="Dog_Identifier_Mobile.MixedScanResults"
              x:Name="PageContent"
+             BackgroundColor="White"
              Title="Scan Results">
     <ContentPage.Content>
         <StackLayout x:Name="PageStack" Margin="0" Spacing="0">
             <StackLayout.GestureRecognizers>
                 <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"/>
             </StackLayout.GestureRecognizers>
-            <Label x:Name="DogNumberText" HorizontalOptions="Center" FontSize="Large" Margin="25" FontAttributes="Bold"/>
+            <Label x:Name="DogNumberText" HorizontalOptions="Center" FontSize="Large" Margin="25" FontAttributes="Bold" TextColor="#66A7B7"/>
             <Image x:Name="ResultImage" Margin="5,0,5,10" HeightRequest="400"/>
-            <Label x:Name="InfoLabel" Text="Tap on a dog type to get more information about it." FontAttributes="Italic" HorizontalOptions="Center"  FontSize="16.5"  HorizontalTextAlignment="Center"/>
-            
+            <Label x:Name="InfoLabel" Text="Tap on a dog type to get more information about it." FontAttributes="Italic" HorizontalOptions="Center"  FontSize="16.5"  HorizontalTextAlignment="Center" TextColor="#66A7B7"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

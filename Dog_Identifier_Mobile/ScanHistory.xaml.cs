@@ -44,7 +44,7 @@ namespace Dog_Identifier_Mobile
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            var btn = sender as Button;
+            var btn = sender as ImageButton;
             var res = btn.CommandParameter as IScanResult;
             res.Delete();
             Refresh();

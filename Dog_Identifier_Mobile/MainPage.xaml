@@ -4,11 +4,12 @@
             x:Class="Dog_Identifier_Mobile.MainPage"
             xmlns:local="clr-namespace:Dog_Identifier_Mobile"
             NavigationPage.HasNavigationBar="False"
-            BarBackgroundColor="Black"
+            BarBackgroundColor="#66A7B7"
             SelectedTabColor="White"
-            UnselectedTabColor="DimGray"
+            UnselectedTabColor="#BFC5C5"
+            BackgroundColor="white"            
             Title="Home">
-
+    
     <local:Scan Title ="New Scan" IconImageSource="magnifier"/>
     <local:ScanHistory Title ="Scan History" IconImageSource="history"/>
     <local:Settings Title ="Settings" IconImageSource="settings"/>

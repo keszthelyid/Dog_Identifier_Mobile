@@ -32,6 +32,13 @@ namespace Dog_Identifier_Mobile
                     listView.ItemsSource = ToDisplay.Predictions[0];
                     listView.ItemTemplate = new DataTemplate(typeof(DogCell));
                     PageStack.Children.Add(listView);
+
+                    DogNumberText.Text = "I found 1 dog on your photo";
+                }
+                else
+                {
+                    InfoLabel.IsVisible = false;
+                    DogNumberText.Text = "I did not find any dogs on your photo";
                 }
             }
             else
@@ -46,28 +53,11 @@ namespace Dog_Identifier_Mobile
                     listView.ItemTemplate = new DataTemplate(typeof(DogCell));
                     PageStack.Children.Add(listView);
                 }
-            }
 
-            if (ToDisplay.Predictions[0][0].Name == "None")
-            {
-                InfoLabel.IsVisible = false;
-                DogNumberText.Text = "I did not find any dogs on your photo";
-            }
-            else if (ToDisplay.Predictions.Length == 1)
-            {
-                DogNumberText.Text = "I found 1 dog on your photo";
-            }
-            else
-            {
                 DogNumberText.Text = "I found " + ToDisplay.Predictions.Length + " dogs on your photo";
             }
 
             ResultImage.Source = ImageCreatorFromArray.ToImage(ToDisplay.PhotoData);
-        }
-
-        private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
-        {
-            await Navigation.PopAsync();
         }
 
         private async void Detected_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -96,17 +86,19 @@ namespace Dog_Identifier_Mobile
                 verticaLayout.Orientation = StackOrientation.Horizontal;
 
                 nameLabel.FontSize = 15;
-                nameLabel.TextColor = Color.White;
+                nameLabel.TextColor = Color.FromHex("66A7B7");
                 nameLabel.FontAttributes = FontAttributes.Bold;
                 nameLabel.VerticalOptions = LayoutOptions.Center;
 
                 percentageLabel.FontSize = 15;
-                percentageLabel.TextColor = Color.White;
+                percentageLabel.TextColor = Color.FromHex("66A7B7");
                 percentageLabel.FontAttributes = FontAttributes.Bold;
                 percentageLabel.VerticalOptions = LayoutOptions.Center;
 
                 cI.HeightRequest = 70;
                 cI.WidthRequest = 70;
+                cI.BorderThickness = 1;
+                cI.BorderColor = Color.FromHex("66A7B7"); ;
 
                 verticaLayout.Children.Add(cI);
                 verticaLayout.Children.Add(nameLabel);
@@ -115,7 +107,12 @@ namespace Dog_Identifier_Mobile
                 View = verticaLayout;
 
                 View.Margin = 0;             
-            }
+            }            
+        }
+
+        private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }
