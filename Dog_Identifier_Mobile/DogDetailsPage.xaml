@@ -49,7 +49,7 @@
                     <Label x:Name="HypoAllergenic" TextColor="#66A7B7"/>
                     <Button Text="More Info" BackgroundColor="#66A7B7" VerticalOptions="Center" HorizontalOptions="Center" Clicked="Button_Clicked" Padding="30,20" Margin="0, 20, 0, 30"/>
                 </StackLayout>
-                <ActivityIndicator x:Name="activity" Color="WhiteSmoke" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" WidthRequest="100" />
+                <ActivityIndicator x:Name="activity" Color="#DCE2E5" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" WidthRequest="100" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

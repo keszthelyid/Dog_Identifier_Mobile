@@ -23,8 +23,8 @@ namespace Dog_Identifier_Mobile
             InitializeComponent();
             client = new HttpClient();
             // http://localhost:5194
-            // http://192.168.0.236:81
-            client.BaseAddress = new Uri("http://192.168.0.236:81");
+            // http://192.168.0.235:81
+            client.BaseAddress = new Uri("http://dogidentifier.duckdns.org:81");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
               new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
