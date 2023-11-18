@@ -22,8 +22,9 @@ namespace Dog_Identifier_Mobile
         {
             InitializeComponent();
             client = new HttpClient();
-            // http://localhost:5194
-            // http://192.168.0.235:81
+
+            // http://192.168.0.200:81
+            // http://dogidentifier.duckdns.org:81
             client.BaseAddress = new Uri("http://dogidentifier.duckdns.org:81");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
@@ -63,7 +64,7 @@ namespace Dog_Identifier_Mobile
         private async Task<DogViewModel> GetDogType(DogViewModel model)
         {
             var response = await client.PostAsJsonAsync("/dog/getdogtype", model);
-            ;
+            
             if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadAsAsync<DogViewModel>();
